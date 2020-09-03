@@ -1,0 +1,57 @@
+<div class="login-body container">
+    <!-- Page Heading -->
+    <h1 class="my-4">Ticket reservations</h1>
+    <hr>
+
+    <div class="row">
+        <div class="offset-md-2 col-2">
+            <h3>{{movie.name}}</h3>
+        </div>
+        <div class="col-4">
+            <select [(ngModel)]="selectedValue" class="form-control" id="exampleFormControlSelect1" (change)="this.onChange()">
+                <option [ngValue]="0">Please select Showtime</option>
+                <option *ngFor="let s of showtimes" [ngValue]="s.id">{{s.projection_date | date:'mediumDate':'UTC'}} @ {{s.projection_time | date:'HH:mm':'UTC'}}</option>
+              </select>
+        </div>
+    </div>
+
+    <div  *ngIf="this.selectedValue != 0">
+        <div class="row" style="margin-bottom: 50px;">
+            <div class="offset-md-4 col-4 text-center">
+                <div>Screen</div>
+                <div class="hallplan__bg__fallback__line"></div>
+            </div>
+        </div>
+        <div class="row" *ngFor="let asd of showtime_users; let i = index">
+            <div class="offset-md-2 col-2">
+                {{i+1}}
+            </div>
+            <div class="col-4 text-center">
+                <table style="margin-left: 20px;">
+                    <tr>
+                        <td *ngFor="let bsd of asd; let j = index"><img [src]="this.getImgSrc(i, j)" (click)="this.seatClicked(i, j)" class="cursor-pointer"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+            <div class="offset-md-2 col-2 text-center">
+                <img src="https://www.cineplexx.rs/ticketing/static/seat_normal_available.png"/>
+                Seat available
+            </div>
+            <div class="col-2 text-center">
+                <img src="https://www.cineplexx.rs/ticketing/static/seat_normal_selected.png"/>
+                Seat selected
+            </div>
+            <div class="col-2 text-center">
+                <img src="https://www.cineplexx.rs/ticketing/static/seat_normal_sold.png"/>
+                Seat sold
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-8 col-2 text-center">
+                <button type="button" class="button button--secondary" style="float: right;" [disabled]="selected.length < 1 ? 'disabled' : null" (click)="this.goReserve()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

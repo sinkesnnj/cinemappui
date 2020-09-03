@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { MoviesComponent } from './modules/movies/movies.component';
-import { TheatresComponent } from './modules/theatres/theatres.component';
+import { ShowtimesComponent } from './modules/showtimes/showtimes.component';
 import { NewsComponent } from './modules/news/news.component';
 import { SessionComponent } from './modules/session/session.component';
 import { StateService } from './core/services/state.service';
@@ -57,6 +57,7 @@ import { JrimaEditRolesComponent } from './jrima/components/jrima-edit-roles/jri
 import { ProfileComponent } from './modules/profile/profile.component';
 import { JrimaMovieGenresComponent } from './jrima/components/jrima-movie-genres/jrima-movie-genres.component';
 import { JrimaEditMovieGenresComponent } from './jrima/components/jrima-edit-movie-genres/jrima-edit-movie-genres.component';
+import { ReservationsComponent } from './modules/reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { JrimaEditMovieGenresComponent } from './jrima/components/jrima-edit-mov
     DashboardComponent,
     NavigationComponent,
     MoviesComponent,
-    TheatresComponent,
+    ShowtimesComponent,
     NewsComponent,
     SessionComponent,
     CarouselComponent,
@@ -102,7 +103,8 @@ import { JrimaEditMovieGenresComponent } from './jrima/components/jrima-edit-mov
     JrimaEditRolesComponent,
     ProfileComponent,
     JrimaMovieGenresComponent,
-    JrimaEditMovieGenresComponent
+    JrimaEditMovieGenresComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

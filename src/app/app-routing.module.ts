@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { MoviesComponent } from './modules/movies/movies.component';
-import { TheatresComponent } from './modules/theatres/theatres.component';
+import { ShowtimesComponent } from './modules/showtimes/showtimes.component';
 import { NewsComponent } from './modules/news/news.component';
 import { SessionComponent } from './modules/session/session.component';
 import { MoviePreviewComponent } from './modules/movie_preview/movie_preview.component';
@@ -39,6 +39,7 @@ import { ProfileComponent } from './modules/profile/profile.component';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { JrimaEditMovieGenresComponent } from './jrima/components/jrima-edit-movie-genres/jrima-edit-movie-genres.component';
 import { JrimaMovieGenresComponent } from './jrima/components/jrima-movie-genres/jrima-movie-genres.component';
+import { ReservationsComponent } from './modules/reservations/reservations.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'movie/:id', component: MoviePreviewComponent },
-  { path: 'theatres', component: TheatresComponent },
+  { path: 'showtimes', component: ShowtimesComponent },
+  { path: 'reservations/:id', component: ReservationsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'sign_in', component: SessionComponent },
