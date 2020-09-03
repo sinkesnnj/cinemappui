@@ -15,7 +15,7 @@
 
         <!-- Blog Post -->
         <div class="card mb-4" *ngFor="let newsArticle of news">
-          <img class="card-img-top" [src]="newsArticle.poster_path" alt="Card image cap">
+          <img class="card-img-top" [src]="newsArticle.poster_path" height="409.5px" width="728px" alt="News image" onerror="this.src='https://source.unsplash.com/LAaSoL0LrYs/1920x1080';">
           <div class="card-body">
             <h2 class="card-title">{{newsArticle.title}}</h2>
             <p class="card-text">{{newsArticle.short_description}}</p>
