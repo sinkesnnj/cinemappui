@@ -18,7 +18,7 @@
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tickets</a>
                         </li>
                     </ul>
                 </div>
@@ -74,50 +74,36 @@
                                 <button type="button" class="btn btn-success" style="float: right;" (click)="this.updateProfile()">Submit</button>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Experience</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <a href="localhost:3000/users/download.pdf" target="_blank">Visit W3Schools</a> 
-                                    </div>
+                        <div *ngIf="this.tickets.length < 1">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Your don't have any tickets!</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Hourly Rate</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>10$/hr</p>
-                                    </div>
+                            </div>
+                        </div>
+                        <div *ngIf="this.tickets.length > 0">
+                            <div class="row" *ngFor="let ticket of tickets">
+                                <div class="col-md-8">
+                                    <label>{{ticket.movie_name}}</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Total Projects</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>230</p>
-                                    </div>
+                                <div class="col-md-4">
+                                    <a style="float: right;" [href]="this.ticketUrl(ticket.id)" target="_blank">Download</a> 
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>English Level</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="pagination justify-content-center mb-4" style="float: right;">
+                                        <li class="page-item" [ngClass]="{'disabled': page < 2}">
+                                          <span *ngIf="page < 2" class="page-link">&larr; Newer</span>
+                                          <button *ngIf="page > 1" class="page-link" (click)="this.getPage(page -1)">&larr; Newer</button>
+                                        </li>
+                                        <li class="page-item" [ngClass]="{'disabled': !this.hasNextPage}">
+                                            <span *ngIf="!this.hasNextPage" class="page-link">Older &rarr;</span>
+                                            <button *ngIf="this.hasNextPage" class="page-link"  (click)="this.getPage(page +1)">Older &rarr;</button>
+                                        </li>
+                                      </ul>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Availability</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>6 months</p>
-                                    </div>
-                                </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br/>
-                                <p>Your detail description</p>
                             </div>
                         </div>
                     </div>
