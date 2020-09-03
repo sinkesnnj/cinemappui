@@ -30,10 +30,11 @@
         </p>
         <p>{{movie.genres || 'N/A'}} | {{movie.run_time || 'N/A'}} min</p>
         <p><span class="font-italic">Movie starts showing from: </span>{{ movie.release_date | date }}</p>
-        <button class="btn btn-primary" [disabled]="movie.showtimes.length < 1 ? 'disabled' : null" (click)="this.goReserve(movie.id)">Register</button>
+        <button *ngIf="this.tokenAuthService.userSignedIn()" class="btn btn-primary" [disabled]="movie.showtimes.length < 1 ? 'disabled' : null" (click)="this.goReserve(movie.id)">Register</button>
       </div>
       <div *ngFor="let showtime of movie.showtimes" class="col-md-2 text-center">
         <p><strong>{{showtime.projection_time | date:'HH:mm':'UTC'}}</strong></p>
+        <p>{{this.getTheatreName(showtime.theatre_id)}}</p>
         <p>{{showtime.projection_date | date: 'fullDate'}}</p>
       </div>
       <hr>

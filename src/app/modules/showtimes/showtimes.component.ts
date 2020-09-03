@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-showtimes',
@@ -12,6 +13,7 @@ export class ShowtimesComponent implements OnInit {
   movies = [];
   page = 1;
   hasNextPage = false;
+  theatres = [];
 
   constructor(public tokenAuthService: Angular2TokenService, private router: Router) { }
 
@@ -21,6 +23,11 @@ export class ShowtimesComponent implements OnInit {
 
   goReserve(movie_id){
     this.router.navigate(['/reservations/' + movie_id]);
+  }
+
+  getTheatreName(theatreId): string{
+    let theatre = this.theatres.find(element => element.id == theatreId);
+    return theatre.name;
   }
 
   getPage(page) {
@@ -37,6 +44,7 @@ export class ShowtimesComponent implements OnInit {
           movies = JSON.parse(movies);
           this.hasNextPage = movies.length > 4;
           this.movies = movies.slice(0, 4);
+          this.theatres = res.json().data.theatres;
         }
       }
     );

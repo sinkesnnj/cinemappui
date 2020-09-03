@@ -58,6 +58,7 @@ import { ProfileComponent } from './modules/profile/profile.component';
 import { JrimaMovieGenresComponent } from './jrima/components/jrima-movie-genres/jrima-movie-genres.component';
 import { JrimaEditMovieGenresComponent } from './jrima/components/jrima-edit-movie-genres/jrima-edit-movie-genres.component';
 import { ReservationsComponent } from './modules/reservations/reservations.component';
+import { RegistrationComponent } from './modules/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { ReservationsComponent } from './modules/reservations/reservations.compo
     ProfileComponent,
     JrimaMovieGenresComponent,
     JrimaEditMovieGenresComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

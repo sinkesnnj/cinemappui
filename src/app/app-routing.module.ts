@@ -40,6 +40,7 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { JrimaEditMovieGenresComponent } from './jrima/components/jrima-edit-movie-genres/jrima-edit-movie-genres.component';
 import { JrimaMovieGenresComponent } from './jrima/components/jrima-movie-genres/jrima-movie-genres.component';
 import { ReservationsComponent } from './modules/reservations/reservations.component';
+import { RegistrationComponent } from './modules/registration/registration.component';
 
 
 const routes: Routes = [
@@ -48,10 +49,11 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'movie/:id', component: MoviePreviewComponent },
   { path: 'showtimes', component: ShowtimesComponent },
-  { path: 'reservations/:id', component: ReservationsComponent },
+  { path: 'reservations/:id', component: ReservationsComponent, canActivate: [AuthGuard]},
   { path: 'news', component: NewsComponent },
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'sign_in', component: SessionComponent },
+  { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'admin/movies', component: JrimamovieComponent, canActivate: [AuthGuard, AdminGuard]},
   { path: 'admin/movies/new', component: JrimaEditMoviesComponent, canActivate: [AuthGuard, AdminGuard]},

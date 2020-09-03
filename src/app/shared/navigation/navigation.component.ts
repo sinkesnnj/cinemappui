@@ -11,10 +11,9 @@ import { Angular2TokenService } from 'angular2-token';
 export class NavigationComponent implements OnInit {
   cinemaUser: User;
 
-  constructor(private stateService: StateService, public tokenAuthService: Angular2TokenService) { }
+  constructor(public stateService: StateService, public tokenAuthService: Angular2TokenService) { }
 
   ngOnInit(): void {
-    // this.stateService.initialLoad();
   }
 
 }
