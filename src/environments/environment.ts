@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   token_auth_config: {
-    apiBase: 'http://localhost:3000',
+    apiBase: 'https://cinemaappp.herokuapp.com',
     signInPath: 'auth/sign_in',
     signInRedirect: '/dashboard',
 
