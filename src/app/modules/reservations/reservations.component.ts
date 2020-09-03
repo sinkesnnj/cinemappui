@@ -14,7 +14,9 @@ export class ReservationsComponent implements OnInit {
   selected = [];
   showtimes = [];
   selectedValue = 0;
-  movie = null;
+  movie = {
+    name:''
+  };
 
   constructor(public tokenAuthService: Angular2TokenService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService) { }
 
@@ -70,7 +72,9 @@ export class ReservationsComponent implements OnInit {
       this.showtime_users[i][j] = 1;
     } else if (this.showtime_users[i][j] == 1) {
       this.showtime_users[i][j] = null;
-      this.selected = this.selected.filter(sel => sel[0] != i && sel[1] != j)
+      let sel = [];
+      this.selected.forEach(el => { if (el[0] != i || el[1] != j) sel.push(el); });
+      this.selected = sel;
     } else {
       return;
     }

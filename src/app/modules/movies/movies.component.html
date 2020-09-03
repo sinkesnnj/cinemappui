@@ -10,14 +10,14 @@
     <div *ngFor="let movie of movies">
       <div class="row">
         <div class="col-md-7">
-          <a routerLink="/movie/{{movie.id}}">
+          <a routerLink="/movies/{{movie.id}}">
             <img class="img-fluid rounded mb-3 mb-md-0" [src]="movie.poster_path" height="362.85px" width="635px" alt="Movie image" onerror="this.src='http://placehold.it/700x400';">
           </a>
         </div>
         <div class="col-md-5">
           <h3>{{ movie.name }}</h3>
           <p>{{ movie.summary }}</p>
-          <a class="btn btn-primary" routerLink="/movie/{{movie.id}}">View Movie</a>
+          <a class="btn btn-primary" routerLink="/movies/{{movie.id}}">View Movie</a>
         </div>
         <hr>
       </div>

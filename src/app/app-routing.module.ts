@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'movies', component: MoviesComponent },
-  { path: 'movie/:id', component: MoviePreviewComponent },
+  { path: 'movies/:id', component: MoviePreviewComponent },
   { path: 'showtimes', component: ShowtimesComponent },
   { path: 'reservations/:id', component: ReservationsComponent, canActivate: [AuthGuard]},
   { path: 'news', component: NewsComponent },

@@ -10,10 +10,10 @@
     <div class="row">
       <div *ngFor="let movie of movies" class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
-          <a routerLink="/movie/{{movie.id}}"><img class="card-img-top" [src]="movie.poster_path" width="348px" height="198.85px" alt="Movie image" onerror="this.src='http://placehold.it/700x400';"></a>
+          <a routerLink="/movies/{{movie.id}}"><img class="card-img-top" [src]="movie.poster_path" width="348px" height="198.85px" alt="Movie image" onerror="this.src='http://placehold.it/700x400';"></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a routerLink="/movie/{{movie.id}}">{{ movie.name }}</a>
+              <a routerLink="/movies/{{movie.id}}">{{ movie.name }}</a>
             </h4>
             <p class="card-text">{{ movie.summary }}</p>
           </div>

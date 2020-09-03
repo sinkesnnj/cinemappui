@@ -15,7 +15,7 @@
   <div *ngFor="let movie of movies">
     <div class="row">
       <div class="col-md-2">
-        <a routerLink="/movie/{{movie.id}}">
+        <a routerLink="/movies/{{movie.id}}">
           <img class="img-fluid rounded mb-3 mb-md-0" [src]="movie.poster_path" height="91.4333px" width="160px" alt="Movie image" onerror="this.src='http://placehold.it/700x400';">
         </a>
       </div>

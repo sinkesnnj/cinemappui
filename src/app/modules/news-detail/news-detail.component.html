@@ -17,19 +17,22 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on {{ news.updated_at | date:'medium' }}</p>
+        <p *ngIf="news.updated_at == news.created_at">Posted on {{ news.updated_at | date:'medium' }}</p>
+        <p *ngIf="news.updated_at != news.created_at">Updated on {{ news.updated_at | date:'medium' }}</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" [src]="news.poster_path" alt="">
+        <img class="img-fluid rounded" [src]="news.poster_path" height="410.617px" width="730px" alt="News image" onerror="this.src='https://source.unsplash.com/LAaSoL0LrYs/1920x1080';">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">{{news.short_description}}</p>
 
-        {{news.story_text}}
+        <hr>
+
+        <div [innerHTML]="news.story_text"></div>
 
         <hr>
 

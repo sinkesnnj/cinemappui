@@ -12,6 +12,7 @@ export class NewsDetailComponent implements OnInit {
   news = {
     title: '',
     updated_at: '',
+    created_at: '',
     poster_path: '',
     story_text: '',
     release_date: '',

@@ -10,6 +10,10 @@
           <h2 class="card-title">{{movie.name}}</h2>
           <hr>
           <div class="row">
+            <h5 class="col-2">Release date:</h5>
+            <div class="col-4">{{ movie.release_date | date:'mediumDate' }}</div>
+          </div>
+          <div class="row">
             <h5 class="col-2">Run time:</h5>
             <div class="col-4">{{movie.run_time}} minutes</div>
           </div>
@@ -37,16 +41,25 @@
           Movie Reviews
         </div>
         <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-          <hr>
-          <a href="#" class="btn btn-success">Leave a Review</a>
+          <div *ngIf="reviews.length < 1">
+            <p>There is no reviews for this movie!</p>
+            <hr>
+          </div>
+          <div *ngFor="let review of reviews">
+            <p>{{review.review_text}}</p>
+            <small *ngIf="!review.user_id" class="text-muted">Posted by Anonymous on {{ review.updated_at | date:'medium' }}</small>
+            <small *ngIf="review.user_id" class="text-muted">Posted by {{this.getReviewersName(review.user_id)}} on {{ review.updated_at | date:'medium' }}</small>
+             |
+            <span class="text-warning">
+              <ng-container *ngFor="let i of [].constructor(review.rating)">&#9733;</ng-container>
+              <ng-container *ngFor="let i of [].constructor(5-review.rating)">&#9734;</ng-container>
+            </span>
+            <hr>
+          </div>
+          <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="margin-top: 10px; margin-bottom: 10px;">
+            <formly-form [form]="commentForm" [fields]="fields" [model]="model"></formly-form>
+            <button type="submit" class="btn btn-success">Leave a Review</button>
+          </form>
         </div>
       </div>
       <!-- /.card -->
