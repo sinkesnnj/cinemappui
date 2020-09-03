@@ -9,8 +9,8 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div *ngFor="let carousel of carousels; index as i; first as isFirst" class="carousel-item" [ngClass]="{ active: isFirst }" [ngStyle]="{'background-image': 'url(' + carousel.poster_path + ')'}">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">{{carousel.title}}</h2>
-            <p class="lead">{{carousel.short_description}}</p>
+            <h2 class="display-4"><a routerLink="/news/{{carousel.id}}" style="color: white;">{{carousel.title}}</a></h2>
+            <p class="lead"><a routerLink="/news/{{carousel.id}}"  style="color: white;">{{carousel.short_description}}</a></p>
           </div>
         </div>
       </div>

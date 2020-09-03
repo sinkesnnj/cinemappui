@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
     email: '',
     image: ''
   }
+  avg = 0;
   tickets = [];
   page = 1;
   hasNextPage = false;
@@ -54,6 +55,7 @@ export class ProfileComponent implements OnInit {
       res => {
         if (res.status == 200){
           this.user = res.json().data.user;
+          this.avg = res.json().data.averate_rating;
         }
       }
     );

@@ -11,6 +11,7 @@ import { RequestOptions } from '@angular/http';
 })
 export class NewsComponent implements OnInit {
   news = [];
+  categories = [];
   search = null;
   filter = null;
   page = 1;
@@ -19,17 +20,20 @@ export class NewsComponent implements OnInit {
   constructor(public tokenAuthService: Angular2TokenService, public stateService: StateService) {
     this.stateService.search.subscribe(value => {
       this.search = value;
+      this.filter = null;
       this.startSearch();
     });
 
     this.stateService.filter.subscribe(value => {
       this.filter = value;
+      this.search = null;
       this.startFilter();
     });
   }
 
   ngOnInit(): void {
     this.getItems(this.page);
+    this.getCategories();
   }
 
   getPage(page) {
@@ -79,6 +83,32 @@ export class NewsComponent implements OnInit {
         }
       }
     );
+  }
+
+  getCategories() {
+    this.tokenAuthService.init(environment.token_auth_config);
+    this.tokenAuthService.get('news/categories').subscribe(
+      res => {
+        if (res.status == 200){
+          this.categories = res.json().data.categories;
+        }
+      }
+    );
+  }
+
+  clearFilters(){
+    this.filter = null;
+    this.search = null;
+    this.getItems(this.page);
+  }
+
+  getNameOfCategorie(cat_id) {
+    let cat = {
+      title: '',
+    }
+    let categorie = this.categories.filter(u=> u.id == cat_id);
+    cat = categorie[0];
+    return cat.title;
   }
 
 }

@@ -9,6 +9,13 @@
         <h1 class="my-4">Latest News
         </h1>
 
+        <div *ngIf="this.filter">
+          Filter by: <span class="badge badge-primary cursor-pointer"  (click)="this.clearFilters()">{{getNameOfCategorie(this.filter)}}</span>
+        </div>
+        <div *ngIf="this.search">
+          Search by: <span class="badge badge-info cursor-pointer" (click)="this.clearFilters()">{{this.search}}</span>
+        </div>
+        <br/>
         <div *ngIf="news.length < 1">
           No news found matching that criteria!
         </div>
