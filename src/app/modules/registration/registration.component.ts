@@ -27,8 +27,8 @@ export class RegistrationComponent implements OnInit {
     this.tokenAuthService.registerAccount(this.user).subscribe(
         (res) => {
           if (res.status == 200){
-            this.toastr.success('Please log in', 'Successfully registerd!', {positionClass: 'toast-bottom-right'});
-            this.router.navigate(['/sign_in']);
+            this.toastr.success('Welcome', 'Successfully registerd!', {positionClass: 'toast-bottom-right'});
+            this.router.navigate(['/dashboard']);
           }
 
         },
