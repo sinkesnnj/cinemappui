@@ -28,8 +28,8 @@
           <hr>
           <p class="card-text">{{movie.summary}}</p>
           <span class="text-warning">
-            <ng-container *ngFor="let i of [].constructor(Math.round(movie.rating))">&#9733;</ng-container>
-            <ng-container *ngFor="let i of [].constructor(5-Math.round(movie.rating))">&#9734;</ng-container>
+            <ng-container *ngFor="let i of [].constructor(math.round(movie.rating))">&#9733;</ng-container>
+            <ng-container *ngFor="let i of [].constructor(5-math.round(movie.rating))">&#9734;</ng-container>
           </span>
           {{movie.rating}} star(s)
         </div>

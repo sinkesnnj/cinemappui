@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./movie_preview.component.css']
 })
 export class MoviePreviewComponent implements OnInit {
+  math = Math;
   movie = {
     poster_path: '',
     name: '',

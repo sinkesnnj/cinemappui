@@ -14,6 +14,7 @@ export class ShowtimesComponent implements OnInit {
   page = 1;
   hasNextPage = false;
   theatres = [];
+  math = Math;
 
   constructor(public tokenAuthService: Angular2TokenService, private router: Router) { }
 
