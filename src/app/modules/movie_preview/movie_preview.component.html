@@ -56,7 +56,7 @@
             </span>
             <hr>
           </div>
-          <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="margin-top: 10px; margin-bottom: 10px;">
+          <form *ngIf="this.tokenAuthService.userSignedIn()" [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="margin-top: 10px; margin-bottom: 10px;">
             <formly-form [form]="commentForm" [fields]="fields" [model]="model"></formly-form>
             <button type="submit" class="btn btn-success">Leave a Review</button>
           </form>

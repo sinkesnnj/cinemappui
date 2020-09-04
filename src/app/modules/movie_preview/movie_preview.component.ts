@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ToastrService } from 'ngx-toastr';
+import { StateService } from 'src/app/core/services/state.service';
 
 @Component({
   selector: 'app-movie-preview',
@@ -72,7 +73,12 @@ export class MoviePreviewComponent implements OnInit {
     }
   ];
 
-  constructor(public tokenAuthService: Angular2TokenService, private route: ActivatedRoute, private location: Location, private toastr: ToastrService) { }
+  constructor(
+    public tokenAuthService: Angular2TokenService, 
+    private route: ActivatedRoute, 
+    private location: Location,
+    public stateService: StateService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
