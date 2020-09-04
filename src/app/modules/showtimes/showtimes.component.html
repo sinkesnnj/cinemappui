@@ -24,8 +24,8 @@
         <p>
           {{movie.rating || 0}}
           <span class="text-warning">
-            <ng-container *ngFor="let i of [].constructor(movie.rating)">&#9733;</ng-container>
-            <ng-container *ngFor="let i of [].constructor(5-movie.rating)">&#9734;</ng-container>
+            <ng-container *ngFor="let i of [].constructor(Math.round(movie.rating))">&#9733;</ng-container>
+            <ng-container *ngFor="let i of [].constructor(5-Math.round(movie.rating))">&#9734;</ng-container>
           </span>
         </p>
         <p>{{movie.genres || 'N/A'}} | {{movie.run_time || 'N/A'}} min</p>
