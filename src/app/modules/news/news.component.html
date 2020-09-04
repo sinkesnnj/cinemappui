@@ -10,10 +10,10 @@
         </h1>
 
         <div *ngIf="this.filter">
-          Filter by: <span class="badge badge-primary cursor-pointer"  (click)="this.clearFilters()">{{getNameOfCategorie(this.filter)}}|x</span>
+          Filter by: <span class="badge badge-primary cursor-pointer"  (click)="this.clearFilters()">{{getNameOfCategorie(this.filter)}} | x</span>
         </div>
         <div *ngIf="this.search">
-          Search by: <span class="badge badge-info cursor-pointer" (click)="this.clearFilters()">{{this.search}}|x</span>
+          Search by: <span class="badge badge-info cursor-pointer" (click)="this.clearFilters()">{{this.search}} | x</span>
         </div>
         <br/>
         <div *ngIf="news.length < 1">
