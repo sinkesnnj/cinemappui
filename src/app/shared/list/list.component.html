@@ -1,7 +1,7 @@
 <div class="card mb-5">
     <div class="card-header row">
         <div class="col-11">{{title}}</div>
-        <div class="col-1">
+        <div *ngIf="this.url != 'admin/users'" class="col-1">
             <a routerLink="new" class="btn btn-primary a-btn-slide-text" style="float: right; color: white;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 <span><strong>Add</strong></span>            
